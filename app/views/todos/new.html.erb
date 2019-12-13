@@ -1,0 +1,20 @@
+<h1>New Todo</h1>
+
+
+<%= form_with scope: :todo, url: todos_path, local: true do |form| %>
+  <p>
+    <%= form.label :list_item %><br>
+    <%= form.text_field :listitem %>
+  </p>
+
+  <p>
+    <%= form.label :extra_details %><br>
+    <%= form.text_area :extra_details %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', todos_path %>
