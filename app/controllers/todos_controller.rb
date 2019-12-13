@@ -4,7 +4,7 @@ class TodosController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @todo = Todo.find(params[:id])
   end
 
   def new
