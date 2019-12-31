@@ -8,12 +8,22 @@ class TodosController < ApplicationController
   end
 
   def new
+    @todo = Todo.new
   end
 
   def create
-    @todo = Todo.new(params.require(:todo).permit(:listitem, :text))
+    @todo = Todo.new(todo_params)
 
-    @todo.save
-    redirect_to @todo
+    if @todo.save
+      redirect_to @todo
+    else
+      render 'new'
+    end
   end
+
+  private
+  def todo_params
+    params.require(:todo).permit(:listitem, :text)
+  end
+
 end
